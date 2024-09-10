@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser"
 // import attendanceModel from "./Models/attendanceModels";
 import attendanceRoute from "./routers/attendanceRoute.js";
+import studentRoute from "./routers/studentRoute.js";
 
 
 const app = express()
@@ -16,6 +17,10 @@ app.use(cookieParser())
 
 
 app.use(attendanceRoute)
+app.use(studentRoute)
+
+
+
 
 
 const port = process.env.PORT

@@ -10,7 +10,7 @@ const studentSchema = mongoose.Schema({
     studentNumber: {
         type: Number,
         required: true,
-        min: 6,
+        min: 4,
         max: 10
     },
     course: {
@@ -20,9 +20,9 @@ const studentSchema = mongoose.Schema({
     cohort: {
         type: String,
         required: true,
-        enum: ['A', 'B', 'C', 'D', 'E']
+        enum: ['1', '2', '3', '4', '5']
     },
-    tutor: {
+    Tutor: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tutor'
     }
@@ -31,3 +31,4 @@ const studentSchema = mongoose.Schema({
 const studentModel = mongoose.model('studentModel', studentSchema);
 
 export default studentModel;
+
