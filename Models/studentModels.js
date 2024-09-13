@@ -8,9 +8,7 @@ const studentSchema = mongoose.Schema({
     studentNumber: {
         type: Number,
         required: true,
-        unique: true,
-        min: 4,
-        max: 10
+        unique: true
     },
     course: {
         type: String,
@@ -27,7 +25,7 @@ const studentSchema = mongoose.Schema({
     }
 }, {timestamps : true});
 
-const studentModel = mongoose.model('studentModel', studentSchema);
+const studentModel = mongoose.model("studentModel", studentSchema);
 
 export default studentModel;
 
