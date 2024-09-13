@@ -6,6 +6,10 @@ import cookieParser from "cookie-parser"
 // import attendanceModel from "./Models/attendanceModels";
 import attendanceRoute from "./routers/attendanceRoute.js";
 import studentRoute from "./routers/studentRoute.js";
+import tutorRoute from "./routers/tutorRoute.js"
+import superAdminRoute from "./routers/superAdminRoute.js"
+
+// import ensureAuthStudent from './UTILS/authStudentMiddleware.js'
 
 
 const app = express()
@@ -16,8 +20,13 @@ app.use(cookieParser())
 
 
 
+// Routes
 app.use(attendanceRoute)
 app.use(studentRoute)
+app.use(tutorRoute)
+app.use(superAdminRoute)
+
+
 
 
 

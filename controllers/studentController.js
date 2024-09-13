@@ -26,7 +26,7 @@ export  const createStudent = async (req, res) =>{
 
 export const getStudent = async (req, res) =>{
     try{
-        const student = await studentModel.find();
+        const student = await studentModel.find().populate('Tutor');
         if(!student.lenght === 0){
             return res.status(404).json({message: "Student not found"})
         } 
@@ -40,8 +40,9 @@ export const getStudent = async (req, res) =>{
 };
 
 export const getStudentId = async (req, res) => {
+        const { id } = req.params
     try{
-        const student = await studentModel.findById(req.params.id);
+        const student = await studentModel.findById(id).populate('Tutor');
         if(!student){
             return res.status(404).json({message: "Student not found"})
         }
@@ -57,8 +58,9 @@ export const getStudentId = async (req, res) => {
 export const updateStudent = async (req, res) => {
     try{
         const { id } = req.params;
-        const updateStudent = req.body
-        const student = await studentModel.findByIdAndUpdate(id, updateStudent, {new: true});
+        const { name, studentNumber, course, cohort, Tutor } = req.body
+        // const updateStudent = req.body
+        const student = await studentModel.findByIdAndUpdate(id, { name, studentNumber, course, cohort, Tutor }, {new: true});
         if(!student){
             return res.status(404).json({message: "Student not found"})
         }

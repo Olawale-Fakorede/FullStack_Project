@@ -3,13 +3,12 @@ import mongoose from "mongoose";
 const studentSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 50
+        required: true
     },
     studentNumber: {
         type: Number,
         required: true,
+        unique: true,
         min: 4,
         max: 10
     },

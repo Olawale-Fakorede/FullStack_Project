@@ -14,8 +14,7 @@ const tutorSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 8,
-        match: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+        minlength: 8
     },
     course: {
         type: String,
@@ -24,10 +23,16 @@ const tutorSchema = mongoose.Schema({
     phone: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        minlength: 11
+    },
+    SuperAdmin:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'SuperAdmin'
     }
 }, {timestamps: true});
 
 const tutorModel = mongoose.model('tutorModel', tutorSchema);
 
 export default tutorModel;
+
